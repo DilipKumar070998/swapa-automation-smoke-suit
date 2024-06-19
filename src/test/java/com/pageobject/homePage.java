@@ -34,6 +34,8 @@ public class homePage {
     private By PilotPollingForm = By.xpath("(//a[contains(text(),'Pilot')])[3]");
     private By Calculators = By.linkText("Calculators");
     private By DisabilityCalculator = By.xpath("(//a[contains(text(),'Calculators')])[1]/../div[3]/a[3]");
+    private By yourUnion = By.xpath("//span[text()='Your Union']");
+    private By boardOfDirectors = By.xpath("(//a[text()='Board of Directors'])[1]");
     /**
      * Clicks on the 'Resources' link.
      */
@@ -97,4 +99,21 @@ public class homePage {
         this.softAssert.assertEquals(ActualDisabilityCalculatorPageTitle, this.property.getDataFromPropertyFile("ExceptedDisabilityCalculatorPageTitle"), "Disability Calculator Page Tile Mismatch");
         this.softAssert.assertAll();
     }
+
+    public void clickYourUnion() {
+        wait.explicitWaitForElementToBeLocated(yourUnion);
+        driver.findElement(yourUnion).click();
+
+    }
+
+    public void boardOfDirectors() throws IOException {
+        wait.explicitWaitForElementToBeLocated(boardOfDirectors);
+        driver.findElement(boardOfDirectors).click();
+        String boardOfDirectorsPageTitle = driver.getTitle();
+        this.softAssert.assertEquals(boardOfDirectorsPageTitle, this.property.getDataFromPropertyFile("expectedBoardofDirectorsPageTitle"), "Disability Calculator Page Tile Mismatch");
+        this.softAssert.assertAll();
+
+    }
+
+
 }

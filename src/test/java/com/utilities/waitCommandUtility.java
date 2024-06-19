@@ -22,7 +22,7 @@ public class waitCommandUtility {
      */
     public waitCommandUtility(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     /**
@@ -32,7 +32,7 @@ public class waitCommandUtility {
      */
     public void implicitWaitCommand() {
         // Set the implicit wait timeout to 10 seconds
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     /**
@@ -68,10 +68,19 @@ public class waitCommandUtility {
      * Waits until an element located by the given locator is present in the DOM.
      *
      * @param locator The locator strategy for finding the element.
+     * @return
      */
-    public void explicitWaitForElementToBeLocated(By locator) {
+    public WebElement explicitWaitForElementToBeLocated(By locator) {
         // Wait until the element located by the given locator is present
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return null;
+    }
+    public static WebElement waitForElementToBeVisible(WebDriver driver, By locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+         return null;
     }
 
 }
+
+

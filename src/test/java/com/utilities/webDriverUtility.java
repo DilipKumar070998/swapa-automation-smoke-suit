@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
  * Utility class for managing WebDriver window operations.
  */
 public class webDriverUtility {
+
+
     /**
      * Constructor (empty).
      */

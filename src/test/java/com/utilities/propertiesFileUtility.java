@@ -30,8 +30,7 @@ public class propertiesFileUtility {
         // Initialize Properties object
         Properties file = new Properties();
         // Specify the path to the properties file
-        FileInputStream Path = new FileInputStream("/Users/nagarajans/Documents/Automation" +
-                "/SwapaWorkbook/src/main/resources/Properties");
+        FileInputStream Path = new FileInputStream("/Users/dilipkumar/Desktop/Automation nagaraj/My-Repo/src/main/resources/Properties");
         // Load the properties file
        file.load(Path);
         // Get the value associated with the provided key

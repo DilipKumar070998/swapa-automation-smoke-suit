@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/nagarajans/Documents/Automation/SwapaWorkbook">
+    <listeners>
+        <listener class-name="com.utilities.CustomTestNGListener" />
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Board of Directors Test">
         <classes>
-            <class name="com.test.pilotPollingFormTest">
+            <class name="com.test.BoardOfDirectorsTest">
                 <methods>
-                    <include name="loginToSwapaApp"/>
-                    <include name="navigateToPilotPoling"/>
-                    <include name="fillPilotPollingForm"/>
-                </methods>
-            </class>
-            <class name="com.test.disabilityCalculatorTest">
-                <methods>
-                    <include name="navigateToDisabilityCalculator"/>
-                    <include name="validateMonthlyMbe"/>
-                    <include name="validateSickBankTpf"/>
+                    <include name="boardOfDirectorsTest" />
                 </methods>
             </class>
         </classes>

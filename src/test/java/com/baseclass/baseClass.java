@@ -9,7 +9,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,7 +30,7 @@ public class baseClass {
 
         this.webDriverUtils = new webDriverUtility();
         this.properties = new propertiesFileUtility(driver);
-
+        wait = new waitCommandUtility(driver);
     }
 
     /**
@@ -36,7 +38,7 @@ public class baseClass {
      *
      * @throws IOException If there is an error reading from the properties file.
      */
-    @BeforeClass
+    @BeforeMethod
     public void OpenBrowser() throws IOException {
 
         // Get the browser name from the properties file
@@ -61,14 +63,15 @@ public class baseClass {
         driver.get(properties.getDataFromPropertyFile("url"));
     }
 
+
     /**
      * Method to close the browser and quit the WebDriver.
      */
-    @AfterClass
-    public void CloseBrowser() {
+    @AfterMethod
+    public void CloseBrowser() throws InterruptedException {
 
         // Quit the WebDriver
-        webDriverUtils.minimize(driver);
+        //webDriverUtils.minimize(driver);
         driver.quit();
     }
 }
